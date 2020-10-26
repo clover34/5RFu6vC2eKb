@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.etc.delightstouring.mapper.ProvinceMapper">
+    <!--增：新增省份信息-->
+    <insert id="addProvince" parameterType="Province">
+        insert into province(p_id,p_name) values(#{pid},#{pname})
+    </insert>
+    <!--删：根据编号删除省份信息-->
+    <delete id="delProvinceById" parameterType="int">
+        delete from province where p_id = #{pid}
+    </delete>
+    <!--改：根据编号修改省份信息-->
+    <update id="updateProvinceById" parameterType="Province">
+        update province
+        <set>
+            <if test="pname != null">
+                p_name = #{pname},
+            </if>
+        </set>
+        where p_id = #{pid}
+    </update>
+    <!--查：查询省份变记录数-->
+    <select id="findRecordCount" resultType="int">
+        select count(p_id) from province
+    </select>
+    <!--查：根据编号查询省份信息-->
+    <select id="findProvinceById" parameterType="int" resultType="Province">
+        select * from province where p_id = #{pid}
+    </select>
+    <!--查：根据名称查询省份信息-->
+    <select id="findProvinceByName" parameterType="string" resultType="Province">
+        select * from province where p_name = #{pname}
+    </select>
+    <!--查：查询所有省份信息-->
+    <select id="findAllProvince" resultType="Province">
+        select * from province
+    </select>
+</mapper>
