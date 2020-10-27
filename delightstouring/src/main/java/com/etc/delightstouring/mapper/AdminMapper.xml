@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.etc.delightstouring.mapper.AdminMapper">
+
+    <!--  新增管理员信息-->
+    <insert id="add" parameterType="Admin">
+        insert into admin(UUID,a_id,a_name,password,a_phone,a_role) values(#{UUID},#{a_id},#{a_name},#{password},#{a_phone},#{a_role})
+    </insert>
+
+    <!--  根据管理员编号删除管理员信息-->
+    <delete id="deleteById" parameterType="String">
+        delete from admin where a_id = #{a_id}
+    </delete>
+
+    <!--  根据管理员编号修改管理员信息-->
+    <update id="updateById" parameterType="Admin">
+        update admin set a_name = #{a_name},password = #{password},a_phone = #{a_phone},a_role = #{a_role} where a_id = #{a_id}
+    </update>
+
+    <!--  根据管理员编号查询信息-->
+    <select id="findById" parameterType="String" resultType="Admin">
+        select * from admin where a_id = #{a_id}
+    </select>
+
+    <!-- 根据管理员姓名模糊查询-->
+    <select id="findLikeName" parameterType="String" resultType="Admin">
+        select * from admin where a_name like '${a_name}'
+    </select>
+
+    <!-- 查询所有管理员信息-->
+    <select id="findAll" resultType="Admin">
+        select * from admin
+    </select>
+
+
+</mapper>
