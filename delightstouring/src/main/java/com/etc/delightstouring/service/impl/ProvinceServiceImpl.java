@@ -27,7 +27,7 @@ public class ProvinceServiceImpl implements ProvinceService {
      */
     @Override
     public boolean addProvince(Province province) {
-        if (provinceMapper.findProvinceByName(province.getPName()) == null) {
+        if (provinceMapper.findProvinceByName(province.getpName()) == null) {
             return provinceMapper.addProvince(province) > 0 ? true : false;
         }
         return false;
@@ -58,8 +58,8 @@ public class ProvinceServiceImpl implements ProvinceService {
      * @return
      */
     @Override
-    public int findRecordCount() {
-        return provinceMapper.findRecordCount();
+    public int findCount() {
+        return provinceMapper.findCount();
     }
 
     /**
@@ -79,7 +79,9 @@ public class ProvinceServiceImpl implements ProvinceService {
      */
     @Override
     public Province findProvinceById(Integer pid) {
-        return provinceMapper.findProvinceById(pid);
+        Province provinceById = provinceMapper.findProvinceById(pid);
+        System.out.println("provinceById = " + provinceById);
+        return provinceById;
     }
 
     /**

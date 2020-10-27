@@ -50,7 +50,7 @@
     <!--配置 AOP-->
     <aop:config>
         <!--配置切点-->
-        <aop:pointcut id="mycut" expression="execution(* com.etc.service..*.*(..))"/>
+        <aop:pointcut id="mycut" expression="execution(* com.etc.delightstouring.service..*.*(..))"/>
         <!--配置增强-->
         <aop:advisor advice-ref="txAdvice" pointcut-ref="mycut"/>
     </aop:config>

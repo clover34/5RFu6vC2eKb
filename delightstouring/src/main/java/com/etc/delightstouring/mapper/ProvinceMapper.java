@@ -37,7 +37,7 @@ public interface ProvinceMapper {
      * 查：查询表的总记录数
      * @return
      */
-    int findRecordCount();
+    int findCount();
 
     /**
      * 查：根据名称查询省份信息

@@ -1,6 +1,7 @@
 package com.etc.delightstouring.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @ClassName Province
@@ -12,6 +13,7 @@ import java.io.Serializable;
 public class Province implements Serializable {
     private Integer pId;// 省份编号
     private String pName;// 省份名称
+    private List<Region> regions;// 地区集合
 
     public Province(Integer pId, String pName) {
         this.pId = pId;
@@ -30,22 +32,31 @@ public class Province implements Serializable {
         return "Province{" +
                 "pId=" + pId +
                 ", pName='" + pName + '\'' +
+                ", regions=" + regions +
                 '}';
     }
 
-    public Integer getPId() {
+    public Integer getpId() {
         return pId;
     }
 
-    public void setPId(Integer pId) {
+    public void setpId(Integer pId) {
         this.pId = pId;
     }
 
-    public String getPName() {
+    public String getpName() {
         return pName;
     }
 
-    public void setPName(String pName) {
+    public void setpName(String pName) {
         this.pName = pName;
+    }
+
+    public List<Region> getRegions() {
+        return regions;
+    }
+
+    public void setRegions(List<Region> regions) {
+        this.regions = regions;
     }
 }
